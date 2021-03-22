@@ -670,6 +670,8 @@ def run_cmake(force, extra_args=None):
       gen_args += extra_args
     if cfg.generator:
       gen_args += ['-G', cfg.generator]
+      gen_args += ['-A', 'x64']
+      gen_args += ['-T', 'v141']
 
     # CMake command to build.
     build_args = [

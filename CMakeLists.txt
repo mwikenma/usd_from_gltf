@@ -18,7 +18,7 @@ project (usd_from_gltf)
 # We don't use Python in this tool, but when the USD library is built with
 # PXR_PYTHON_SUPPORT_ENABLED it references it anyway.
 if (EXISTS "${USD_DIR}/lib/python/")
-  find_package(Python COMPONENTS Development)
+  find_package(Python 3.7 EXACT COMPONENTS Development)
   if (NOT Python_FOUND)
     message(FATAL_ERROR "Missing python libs.")
   endif (NOT Python_FOUND)
@@ -29,6 +29,7 @@ set(USD_INCLUDE_DIRS
   "${USD_DIR}/include/boost-1_61"
 # Visual Studio 2017 requires boost 1.65.1.
   "${USD_DIR}/include/boost-1_65_1"
+  "${USD_DIR}/include/boost-1_70"
   ${Python_INCLUDE_DIRS}
 )
 
